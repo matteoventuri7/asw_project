@@ -12,10 +12,20 @@
   </div>
 
 
-  <div class="">
-    <br>
+  <div class="mt-3">
+    <div class="row mb-3">
+      <div class="col-5">
+        <input type="search" class="form-control" value="" #txtFilterList (keyup.enter)="filterList()" />
+      </div>
+      <div class="col">
+        <button class="btn btn-primary mr-2" (click)="filterList()">Filter</button>
+        <button class="btn btn-danger" (click)="resetFilter()">Reset</button>
+      </div>
+    </div>
+    
+    
     <ngx-datatable class="material striped" [rowHeight]="50" [rows]="contacts" [columns]="columns" [selected]="selected"
-      [selectionType]="SelectionType.single" (select)="onSelect($event)" [sortType]="SortType.multi" [limit]="5"
+      [selectionType]="SelectionType.single" (select)="onSelect($event)" [sortType]="SortType.multi" [limit]="25"
       [footerHeight]="50" [headerHeight]="50">
     </ngx-datatable>
 

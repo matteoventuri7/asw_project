@@ -17,6 +17,13 @@ export class ContactService {
     );
   }
 
+  getByFilter(filter) {
+    return this.http.get<any[]>(environment.apiEndpoint + "/contacts/"+encodeURIComponent(filter)).pipe(
+      map((res: any) => res.data),
+      catchError(this.handleErrorObservable)
+    );
+  }
+
   countAll() {
     return this.http.get<any>(environment.apiEndpoint + "/contacts/count").pipe(
       map((res: any) => {

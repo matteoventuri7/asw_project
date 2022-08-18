@@ -36,6 +36,9 @@ router
   .route("/contacts")
   .get(contactController.index)
   .post(contactController.new);
+  router
+  .route("/contacts/:filter")
+  .get(contactController.getByFilter);
 router
   .route("/contact/:contact_id")
   .get(contactController.view)

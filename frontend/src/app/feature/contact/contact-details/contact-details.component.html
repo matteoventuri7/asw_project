@@ -10,31 +10,30 @@
       <span class="anchor" id="formComplex"></span>
       <div class="my-5"></div>
       <h3>Details </h3>
-      <!-- form complex example -->
       <form>
         <div class="row g-3">
            <div class="col-sm-6 col-md-6">
-            <label for="exampleFirst" class="form-label" >First Name:</label>
+            <label class="form-label" >First Name:</label>
             <span>{{contact.firstName}}</span>
           </div>
            <div class="col-sm-6 col-md-6">
-            <label for="exampleLast" class="form-label">Last Name:</label>
+            <label class="form-label">Last Name:</label>
             <span>{{contact.lastName}}</span>
           </div>
            <div class="col-sm-6 col-md-6">
-            <label for="exampleAccount" class="form-label">Email:</label>
-            <span>{{contact.email}}</span>
+            <label class="form-label">Email:</label>
+            <a target="_blank" href="mailto:{{contact.email}}">{{contact.email}}</a>
           </div>
            <div class="col-sm-6 col-md-6">
-            <label for="exampleCtrl" class="form-label">Mobile:</label>
-            <span>{{contact.mobile}}</span>
+            <label class="form-label">Mobile:</label>
+            <a target="_blank" href="tel:{{contact.mobile}}">{{contact.mobile}}</a>
           </div>
            <div class="col-sm-6 col-md-6">
-            <label for="exampleZip" class="form-label">City:</label>
+            <label class="form-label">City:</label>
             <span>{{contact.city}}</span>
           </div>
            <div class="col-sm-6 col-md-6">
-            <label for="exampleZip" class="form-label">Postal Code:</label>
+            <label class="form-label">Postal Code:</label>
             <span>{{contact.postalCode}}</span>
           </div>
           <div class="col-sm-6 col-md-6">

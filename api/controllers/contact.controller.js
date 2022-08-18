@@ -18,12 +18,37 @@ exports.index = function (req, res) {
         status: "error",
         message: err
       });
-    }
-    res.json({
-      status: "success",
-      message: "Contacts retrieved successfully",
-      data: contacts
-    });
+    } else
+      res.json({
+        status: "success",
+        message: "Contacts retrieved successfully",
+        data: contacts
+      });
+  });
+};
+
+exports.getByFilter = function (req, res) {
+  const filter = req.params.filter;
+  const rgx = (pattern) => new RegExp(`.*${pattern}.*`);
+  const searchRgx = rgx(filter);
+  
+  Contact.find({userId : req.auth.sub, $or:[
+      { firstName: { $regex: searchRgx, $options: "i" } },
+      { lastName: { $regex: searchRgx, $options: "i" } },
+      { email: { $regex: searchRgx, $options: "i" } },
+      { city: { $regex: searchRgx, $options: "i" } }
+  ]}, function (err, contacts) {
+    if (err) {
+      res.json({
+        status: "error",
+        message: err
+      });
+    } else
+      res.json({
+        status: "success",
+        message: "Contacts retrieved successfully",
+        data: contacts
+      });
   });
 };
 

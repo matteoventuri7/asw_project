@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { SortType, SelectionType } from "@swimlane/ngx-datatable";
 import { ContactService } from "../contact.service";
 import { Router } from "@angular/router";
@@ -13,6 +13,8 @@ export class ContactListComponent implements OnInit {
   selected = [];
   SelectionType = SelectionType;
 
+  @ViewChild('txtFilterList') txtFilterList!: ElementRef;
+
   columns = [
     { prop: "firstName", name: "First Name",  width: 250 },
     { prop: "lastName",  width: 250  },
@@ -25,18 +27,33 @@ export class ContactListComponent implements OnInit {
   getAll(): void {
     this.contactService.getAll().subscribe(
       (data) => {
-        console.log(data);
         this.contacts = data;
       },
-
+      (error) => {}
+    );
+  }
+  getByFilter(filter): void {
+    this.contactService.getByFilter(filter).subscribe(
+      (data) => {
+        this.contacts = data;
+      },
       (error) => {}
     );
   }
   onSelect(selected: any): void {
-    console.log("Select Event", selected, this.selected);
     this.router.navigate(["/contacts/details/" + this.selected[0]._id]);
   }
   ngOnInit(): void {
+    this.getAll();
+  }
+
+  filterList(): void{
+    const query = this.txtFilterList.nativeElement.value;
+    this.getByFilter(query);
+  }
+
+  resetFilter(): void { 
+    this.txtFilterList.nativeElement.value = '';
     this.getAll();
   }
 }
