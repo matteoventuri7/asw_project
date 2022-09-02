@@ -8,7 +8,7 @@ import { CoreModule } from "@core/core.module";
 import { SharedModule } from "@shared/shared.module";
 import { ProfileComponent } from "./profile/profile.component";
 import { HttpClientModule } from "@angular/common/http";
-import { ContactService } from "../contact/contact.service";
+import { ContactService } from "../../core/services/contact.service";
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, HomeComponent, ProfileComponent],

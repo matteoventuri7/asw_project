@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CoreModule } from "@core/core.module";
 import { SharedModule } from "@shared/shared.module";
 import { ContactRoutingModule } from "./contact-routing.module";
-import { ContactService } from "./contact.service";
+import { ContactService } from "../../core/services/contact.service";
 import { ContactDetailsResolver } from "./contact.resolver";
 
 @NgModule({

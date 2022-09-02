@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { SortType, SelectionType } from "@swimlane/ngx-datatable";
-import { ContactService } from "../contact.service";
+import { ContactService } from "../../../core/services/contact.service";
 import { Router } from "@angular/router";
 @Component({
   selector: "app-contact-list",

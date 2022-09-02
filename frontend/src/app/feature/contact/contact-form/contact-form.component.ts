@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
-import { ContactService } from "../contact.service";
+import { ContactService } from "../../../core/services/contact.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { ValidationService } from "@core/components/validation-errors/validation-messages.service";

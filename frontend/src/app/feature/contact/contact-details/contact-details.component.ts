@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-import { ContactService } from "../contact.service";
+import { ContactService } from "../../../core/services/contact.service";
 
 @Component({
   selector: "app-contact-details",
